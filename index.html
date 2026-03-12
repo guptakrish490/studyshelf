@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +8,79 @@
     <link rel="stylesheet" href="/studyshelf/studyshelf/css/styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');
     </style>
 </head>
-<body>
 
-    <header>
-        <div class="logo">
-            <div class="img">
-                <img src="/studyshelf/studyshelf/assets/logo.svg">
+<body>
+    <div id="overlay">
+        <form id="formContainer" style="display: none">
+
+            <heading>Add New Subject</heading>
+            <span>Subject Name:</span><input id="subject" type="text" placeholder="Enter Subject Name" required>
+
+            <span>Resources:</span>
+            <div id="subjectInput" class="subjectInput">
+                <select id="selectDropdown">
+                    <option selected value="Select a Category">Select a Category</option aria-required>
+                    <option value="Class Notes">Class Notes</option>
+                    <option value="Assignments">Assignments</option>
+                    <option value="PYQs">PYQs</option>
+                    <option value="Others">Others</option>
+                </select>
+                <input id="title" type="text" placeholder="Enter Title" required>
+                <input id="link" type="text" placeholder="Paste your G-drive #Link here" required>
             </div>
-            <div class="nameofLogo">
-                <h2>StudyShelf</h2>
+
+            <div id="formButtons">
+                <button type="submit" id="saveButton">Save</button>
+                <button type="submit" id="cancelSave">Cancel</button>
             </div>
-        </div>
-    </header>
+
+        </form>
+    </div>
+
+        <header>
+            <div class="logo">
+                <div class="img">
+                    <img src="/studyshelf/studyshelf/assets/logo.svg">
+                </div>
+                <div class="nameofLogo">
+                    <h2>StudyShelf</h2>
+                </div>
+            </div>
+        </header>
 
     <main>
-        <div class="top"> 
+
+        <div class="top">
             <div class="searchbar">
                 <img src="/studyshelf/studyshelf/assets/searchbutton.svg">
                 <input type="text" placeholder="Search resources....">
             </div>
         </div>
+
         <div class="topics">
+
             <div class="sidebar">
-                All subjects list here...
+                
             </div>
-            <div class="container">
-                <div class="item1 items">Subject1 in detail</div>
-                <div class="item2 items">Subject2 in detail</div>
-                <div class="item3 items">Subject3 in detail</div>
-                <div class="item4 items">Subject4 in detail</div>
-                <div class="item5 items">Subject5 in detail</div>
-                <div class="item6 items">Subject6 in detail</div>
-                <div class="item7 items">Subject7 in detail</div>
-                <div class="item8 items">Subject8 in detail</div>
+
+            <div id=container class="container">
+                <p name="midText">No Resources to Display...</p>
+                <button id="addResources">+ Add Resources</button>
             </div>
+
+
         </div>
     </main>
 
-    <footer>
-        <div class="addnew">
-            <button>+</button>
-        </div>
-    </footer>
-    
+    <button id="addnew">
+        <img id="addNewBtn" src="/studyshelf/studyshelf/assets/addNewBtn.svg">
+    </button>
+
+    <script src="/studyshelf/studyshelf/js/script.js"></script>
+
 </body>
+
 </html>
