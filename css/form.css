@@ -1,0 +1,179 @@
+#cardCancelButton{
+    border-radius: 5px;
+    border: 1px solid grey;
+    width:20%;
+    font-weight: 500;
+}
+#cardSaveButton{
+    border: 1px solid grey;
+    border-radius: 6px;
+    width:30%;
+    font-weight: 500;
+    background-color: #2169c6;
+    color:white;
+}
+#formContainer{
+    
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width:50%;
+    height:auto;
+    z-index: 10;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    padding: 3%;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #e1e1e1;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+#formContainer h2{
+    color: rgb(29, 46, 195);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border-bottom: 0.5px solid grey;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 4px 6px rgba(81, 81, 189, 0.5);
+
+}
+#formContainer span{
+    font-weight: 500;
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#subject{
+    width:100%;
+    min-height: 34px;
+    border-radius: 6px;
+    border: 0.5px solid grey;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+}
+.subjectInput{
+    width:100%;
+    font-weight: 600;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    
+}
+.subjectInput input{
+    width:90%;
+    min-height: 28px;
+    border-radius: 6px;
+    background-color: #f8f7fa;
+    border: 0.5px solid gray;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+}
+.subjectInput select{
+    width: 50%;
+    min-height: 28px;
+    border-radius: 6px;
+    background: #e2e2e2;
+    color: #595859;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+#formButtons{
+    width:95%;
+    height: 26%;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 3px 15px 3px;
+}
+#formButtons button{
+    width:40%;
+    height: 35px;
+    padding: 3px;
+    background: #2169c6;
+    border: 1px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    color: #eae8e8;
+    border: none;
+    font-weight: 700;
+    font-size: 90%;
+}
+#formButtons button:hover{
+    transition: all;
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+@media screen and (max-width:768px) {
+    #formContainer{
+        width:75%;
+    }
+    span{
+        font-size: smaller;
+    }
+    #formContainer h2{
+        font-size:large;
+    }
+    
+    #formButtons button{
+        height:14%;
+        font-size: small;
+    }
+    #subject{
+        min-height:28px;
+        padding: 3px;
+        font-size: x-small;
+    }
+    .subjectInput input{
+        min-height: 25px;
+        padding: 3px;
+        font-size: x-small;
+    }
+    .subjectInput select{
+        min-height:25px;
+        white-space: nowrap;
+        font-size: x-small;
+    }
+}
+
+@media screen and (max-width:428px) {
+    #formContainer{
+        height:auto;
+        width:90vw;
+        padding: 10px;
+    }
+    #formContainer span{
+        padding-top: 10px;
+        font-size: smaller;
+        margin-top: 0px;
+    }
+    #formContainer h2{
+        font-size:17px;
+    }
+    
+    #formButtons button{
+        width:45%;
+        height:14%;
+        font-size: small;
+    }
+    #subject{
+        min-height: 28px;
+        padding: 3px;
+        font-size: x-small;
+    }
+    .subjectInput input{
+        min-height: 25px;
+        padding: 3px;
+        font-size: x-small;
+    }
+    .subjectInput select{
+        min-height:24px;
+        white-space: nowrap;
+        font-size: x-small;
+    }
+}
