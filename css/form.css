@@ -15,6 +15,7 @@
 #formContainer{
     
     position: fixed;
+    font-family: 'Libre Baskerville';
     top:50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -32,19 +33,19 @@
     box-shadow: 0 3px 10px rgba(0,0,0,0.6);
 }
 #formContainer h2{
-    color: rgb(29, 46, 195);
-    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(51, 67, 208);
+    font-family: 'Roboto Slab';
     font-weight: 700;
     border-bottom: 0.5px solid grey;
     width: 100%;
     text-align: center;
-    text-shadow: 0 4px 6px rgba(81, 81, 189, 0.5);
+    text-shadow: 0 2px 4px rgba(59, 59, 129, 0.3);
 
 }
 #formContainer span{
     font-weight: 500;
     margin-top: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Libre Baskerville';
 }
 #subject{
     width:100%;

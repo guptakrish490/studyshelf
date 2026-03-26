@@ -24,59 +24,24 @@ document.getElementById("cancelSave").addEventListener("click",()=>{
 })
 
 
-// document.getElementById("formContainer").addEventListener("submit",(e)=>{
-//     e.preventDefault();
-//     localStorage.setItem("name","krish");
-    // const subjectName=document.getElementById("subject").value;
-    // const categoryName=document.getElementById("selectDropdown").value;
-    // const titleName=document.getElementById("title").value;
-    // const driveLink=document.getElementById("link").value;
-    // const subject={name:subjectName,
-    //                     categories:[
-    //                     {
-    //                         name:categoryName,
-    //                         items:[
-    //                             {
-    //                                 title:titleName,
-    //                                 link:driveLink
-    //                             }
-    //                         ]
-    //                     }    
-    //                 ]
-    //             }
-    
-    //     subjects.push(subject);
-    //     localStorage.setItem("subjects",JSON.stringify(subjects));
-//     console.log("saved");
-// })
-
-let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
-
 document.getElementById("formContainer").addEventListener("submit", (e) => {
     // e.preventDefault();
 
+    let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+    
     const subjectName = document.getElementById("subject").value;
     const categoryName = document.getElementById("selectDropdown").value;
     const titleName = document.getElementById("title").value;
     const driveLink = document.getElementById("link").value;
-
+    
+    console.log("saved:", subjects);
     let existingSubject = subjects.find(s => s.name === subjectName);
-
+    
     if (existingSubject) {
-        // Check if category already exists
-        let existingCategory = existingSubject.categories.find(c => c.name === categoryName);
-
-        if (existingCategory) {
-            // Add new item to existing category
-            existingCategory.items.push({ title: titleName, link: driveLink });
-        } else {
-            // Add new category with first item
-            existingSubject.categories.push({
-                name: categoryName,
-                items: [{ title: titleName, link: driveLink }]
-            });
-        }
-    } else {
+       alert(`Subject with name "${existingSubject.name}" already exists!\nPlease add more Categories if needed!`);
+    } 
+    
+    else {
         const subject = {
             name: subjectName,
             categories: [
@@ -91,9 +56,12 @@ document.getElementById("formContainer").addEventListener("submit", (e) => {
                 }
             ]
         };
-
+        
         subjects.push(subject);
-        localStorage.setItem("subjects", JSON.stringify(subjects)); // ✅ save array, not single subject
+        localStorage.setItem("subjects", JSON.stringify(subjects));
         console.log("saved:", subjects);
+        location.reload();
+        
+        renderCards();
     }
 });

@@ -19,14 +19,14 @@
 
         <!-- form starts here -->
 
-        <form id="formContainer" style="display: none">
+        <form action="index.html" id="formContainer" style="display: none">
 
             <h2>Add New Subject</h2>
             <span>Subject Name:</span><input id="subject" type="text" placeholder="Enter Subject Name" required>
             <span>Resources:</span>
             <div id="subjectInput" class="subjectInput">
                 <select id="selectDropdown">
-                    <option selected value="Select a Category">Select a Category</option aria-required>
+                    <option selected disabled value="Select a Category">Select a Category</option aria-required>
                     <option value="Class Notes">Class Notes</option>
                     <option value="Assignments">Assignments</option>
                     <option value="PYQs">PYQs</option>
@@ -45,7 +45,9 @@
 
         <!-- form ends here -->
 
+        
     </div>
+    
 
 
 
@@ -75,133 +77,8 @@
 
 
             <div id=cardContainer class="cardContainer">
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardMain">
-                        <h3>DBMS</h3>
-                        <div class="extraOptions">
-                            <img src="assets/pencilEdit.svg" alt="edit">
-                            <img src="assets/removeBin.svg" alt="remove">
-                        </div>
-                    </div>
-                    <div class="cardHero">
-                        <span>•Notes</span>
-                        <span>•Assignments</span>
-                        <span>•PYQs</span>
-                        <span>•Others</span>
-                    </div>
-                </div>
+                <p>No Resources to Display...</p>
+                <button id="addResources">+ Add Resources</button>
             </div>
     </main>
     <!-- main section ends here -->
@@ -213,8 +90,10 @@
     </button>
     <!-- fixed add button ends here -->
 
+    
     <script src="js/form.js" defer></script>
     <script src="js/dashboard.js" defer></script>
+    <!-- <script src="js/addMoreCategories.js" defer></script> -->
 
 
 </body>
