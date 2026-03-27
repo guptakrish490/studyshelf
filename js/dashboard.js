@@ -50,7 +50,7 @@ function renderCards(){
                                 <div class="categoryMain">
                                     <h4>${cat.name}</h4>
                                     <button class="addMoreLinks"><img class="addMoreFiles" src="assets/addNewCategoryBtn.svg" alt="add"></button>
-                                    <button class="deleteCategory"><img src="assets/removeBin.svg" alt="delete"></button>
+                                    <button class="deleteCategory"><img class="deleteSubjectCategory" src="assets/removeBin.svg" alt="delete"></button>
                                 </div>
                                 `;
 
@@ -261,3 +261,33 @@ document.addEventListener("submit",(e)=>{
 /////////////
 
 
+//delete selected category from card
+document.addEventListener("click",(e)=>{
+
+    const subjects=JSON.parse(localStorage.getItem("subjects"))||[];
+
+    if(e.target.classList.contains("deleteSubjectCategory")){
+
+        const categoryBox=e.target.parentElement.parentElement.parentElement;
+        const card=categoryBox.parentElement;
+
+        const subjectName=card.getAttribute("data-subject");
+        const categoryName=categoryBox.getAttribute("data-category")
+
+        if(confirm(`Are you sure to delete '${categoryName}' from '${subjectName}' `)){
+        
+            const existingSubject=subjects.find(s=>s.name===subjectName);
+            const updatedCategory=existingSubject.categories.filter(c=>c.name!==categoryName);
+
+            existingSubject.categories=updatedCategory;
+            
+            
+            
+            localStorage.setItem("subjects",JSON.stringify(subjects));
+        }
+        
+        renderCards();
+
+    }
+})
+////////////
