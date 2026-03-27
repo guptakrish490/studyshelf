@@ -46,10 +46,10 @@ function renderCards(){
                     
                     
                 sub.categories.forEach(cat=>{
-                    html+=`<div class="cardHero">
+                    html+=`<div class="cardHero" data-category="${cat.name}">
                                 <div class="categoryMain">
                                     <h4>${cat.name}</h4>
-                                    <button class="addMoreLinks"><img src="assets/addNewCategoryBtn.svg" alt="add"></button>
+                                    <button class="addMoreLinks"><img class="addMoreFiles" src="assets/addNewCategoryBtn.svg" alt="add"></button>
                                     <button class="deleteCategory"><img src="assets/removeBin.svg" alt="delete"></button>
                                 </div>
                                 `;
@@ -57,12 +57,21 @@ function renderCards(){
 
                     cat.items.forEach(item=>{
                         html+=`     <div class="item">
-                                        <a href="${item.link}" target="_blank">${item.title}</a>
-                                    </div>
-                                `;
+                                        • <a href="${item.link}" target="_blank">${item.title}</a>
+                                    </div>`;
 
                     })
                     html+=`</div>`;
+                    html+=`<form class="addMoreFilesForm" data-formCategory="${cat.name}" style="display:none">
+                                <div class="inputs">
+                                    <span>Enter Title:&nbsp </span><input type="text" class="addNewTitle" placeholder="Enter title">
+                                </div>
+                                <div class="inputs"> 
+                                    <span>Enter #driveLink:&nbsp </span><input type="text" class="addNewLink" placeholder="Enter driveLink">
+                                </div>
+
+                                <button class="saveAddedFiles">Save</button>
+                            </form>`
                 });
                 html+=`     <form class="addMoreCategory" style="display:none">
                                 <span>Add a new Category:&nbsp </span>
@@ -177,3 +186,78 @@ document.addEventListener("click",(e)=>{
 
     }
 })
+
+
+// add more files(drive links) to card
+document.addEventListener("click",(e)=>{
+
+    
+    if(e.target.classList.contains("addMoreFiles")){
+        const category=e.target.parentElement.parentElement.parentElement;
+        const categoryName=category.getAttribute("data-category");
+
+        const card=e.target.parentElement.parentElement.parentElement.parentElement;
+        const inputForm = Array.from(card.querySelectorAll(".addMoreFilesForm")).find(i => i.getAttribute("data-formCategory")===categoryName);
+
+        if(inputForm.style.display!=="none") inputForm.style.display="none";
+
+
+        else {
+            inputForm.style.display="flex";
+        }
+
+    }
+});
+document.addEventListener("submit",(e)=>{
+
+    const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+
+    if(e.target.classList.contains("addMoreFilesForm")){
+        
+        const card=e.target.parentElement.parentElement.parentElement.parentElement;
+        const inputForm=e.target;
+
+        const titleName=inputForm.querySelector(".addNewTitle").value;
+        const driveLink=inputForm.querySelector(".addNewLink").value;
+
+        const subject=e.target.parentElement;
+        
+        const subjectName=subject.getAttribute("data-subject");
+        const categoryName=inputForm.getAttribute("data-formCategory");
+
+        if(titleName!=="" && driveLink!==""){
+        
+            const existingSubject=subjects.find(s=>s.name===subjectName);
+            const existingCategory=existingSubject.categories.find(c=>c.name===categoryName);
+            
+            existingCategory.items.push({
+                                            title: titleName,
+                                            link: driveLink
+                                        });
+
+            localStorage.setItem("subjects", JSON.stringify(subjects));
+
+        }else{
+            alert("Please fill all the details to continue!!!")
+        }
+
+        if(inputForm.style.display!=="none"){
+            inputForm.style.display="none"
+
+            card.parentElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+        
+        else {
+            inputForm.style.display="flex";
+        }
+        
+    }
+    renderCards();
+})
+/////////////
+
+
