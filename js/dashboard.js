@@ -1,15 +1,18 @@
 const cards=JSON.parse(localStorage.getItem("subjects"))|| [];
 
+//render cards on page reload
 document.addEventListener("DOMContentLoaded", function() {
     renderCards(); 
 });
-
 if(cards.length===0){
     document.getElementById("cardContainer").innerHTML=`<p>No Resources to Display...</p>
                             <button id="addResources">+ Add Resources</button>`;
     
 }
+////////////
 
+
+// for rendering new cards using input form
 document.getElementById("addResources").addEventListener("click",()=>{
     
     if(formContainer.style.display==="none"){
@@ -21,7 +24,6 @@ document.getElementById("addResources").addEventListener("click",()=>{
         overlay.style.display="none";
     }
 })
-
 function renderCards(){
     const cards=JSON.parse(localStorage.getItem("subjects"))||[];
     const cardContainer=document.getElementById("cardContainer");
@@ -82,9 +84,11 @@ function renderCards(){
 }
 
 }
+/////////////
 
 
 
+// for adding more category to a card
 document.addEventListener("click",(e)=>{
     if(e.target.classList.contains("editSubjectImg")){
         const parentDiv = e.target.parentElement.parentElement.parentElement;
@@ -102,7 +106,6 @@ document.addEventListener("click",(e)=>{
         }
     }
 })
-
 document.addEventListener("submit",(e)=>{
     e.preventDefault();
     const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
@@ -140,6 +143,36 @@ document.addEventListener("submit",(e)=>{
         renderCards();
 
         
+
+
+    }
+})
+////////////
+
+
+
+//delete a subject from localstorage and remove it's card
+document.addEventListener("click",(e)=>{
+
+    const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+
+    if(e.target.classList.contains("deleteSubjectImg")){
+        const card=e.target.parentElement.parentElement.parentElement;
+        const subjectName=card.getAttribute("data-subject");
+        console.log(subjectName);
+
+        
+        if(confirm(`Are you sure to delete ${subjectName}?`)){
+            const updatedSubjects = subjects.filter(s => s.name !== subjectName);
+            localStorage.setItem("subjects", JSON.stringify(updatedSubjects));
+
+            window.scrollTo({
+                top:0,
+                behavior: "smooth"
+            });
+        }
+
+        renderCards();
 
 
     }
