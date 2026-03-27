@@ -1,45 +1,59 @@
 # StudyShelf
-StudyShelf is a simple web application designed to organize academic resources in one place. It allows students to store subject-wise study material such as notes, assignments, and previous year question paper with direct link access.
+StudyShelf is a lightweight client-side web application that helps users to store and manage study resources efficiently. It allows organizing materials under subjects and categories, with support for multiple resources per category.
+
+All data is persisted using browser localStorage, ensuring state is maintained across sessions without a backend.
 
 ## 🚀Features(Current)
 - Structured homepage layout
-- Subject sections for organizing resources
-- Floating action button for adding new resources(UI phase)
-- Popup input form to add new subjects
-- Dynamic subject  card creation
+- Add new subjects via input form
+- Delete subjects from localStorage and DOM
+- Dynamic rendering after each operation
+- Add categories to specific subjects using inline input
+- Delete category independetly
+- Add multiple resource(title + drive Link) under each category
+- Inline input for fast entry
+- Floating action button for adding new resources
 - Categorized resource section(Notes, Assignment, PYQs, etc)
-- Add multiple resource links under category
 - Clean Dashboard layout for quick access to study materials
 
 ## 🛠️Tech stack
 - HTML5
 - CSS3
-- (JavaScript-in progress)
+- JavaScript(vanilla)
+- Browser localStorage
 
 ## 📌Planned Features
+- Delete individual or multiple resource under each category
 - UI improvements and smooth transitions
 - Responsive layout improvements
-- Add resources form with validation
-- Dynamic card rendering using JavaScript
-- Store data using local storage
-- Edit and Delete resources
 - Search and filter functionality
 
 ## 📂Project structure
+```
 studyshelf/
   |
-  |---index.html
+  ├---README.md
   |
-  |---css/
-  |  ↳--styles.css
+  ├---index.html
   |
-  |---assets/
-  |  ↳--logo.svg
-  |  ↳--searchbutton.svg
+  ├---css/
+  |  ├--dashboard.css
+  |  ├--form.css
+  |  ├--card.css
   |
-  |---js/
-  |  ↳--scripts.js
-  |---README.md
+  ├---js/
+  |  ├--form.js
+  |  ├--dashboard.js
+  |
+  ├---assets/
+  |  ├--addNewBtn.svg
+  |  ├--addNewCategoryBtn.svg
+  |  ├--logo.svg
+  |  ├--pencilEdit.svg
+  |  ├--removeBin.svg
+  |  ├--searchbutton.svg
+  ```
+  
 
 ## ▶️How to Run
 1. Clone the repository
@@ -53,6 +67,8 @@ This project is built to practice:
 - DOM manipulation
 - Dynamic UI rendering
 - JavaScript fundamentals and logic
+- Nested objects and data structures
+- Browser localStorage
 - Git workflow discipline
 ---
 
