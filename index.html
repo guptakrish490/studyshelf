@@ -54,6 +54,28 @@
         </form>
         <!-- form ends here -->
 
+        <!-- for for edit category -->
+        <form action="index.html" class="editCategory" id="editCategory" style="display: none;">
+            <h3>Edit Category</h3>
+            <div class="inputEditCategory">
+                <span>Category Name:</span><input name="newCategoryName" type="text" class="newCategoryName" placeholder="Enter Category Name">
+            </div>
+
+            <div class="inputEditCategory">
+                <span>Or select one:</span><select name="newCategory" id="selectCategoryNew">
+                    <option selected disabled value="Select a Category">Select a Category</option aria-required>
+                    <option value="Class Notes">Class Notes</option>
+                    <option value="Assignments">Assignments</option>
+                    <option value="PYQs">PYQs</option>
+                    <option value="Practice Papers">Practice Papers</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <button id="saveEditCategory">Save</button>
+        </form>
+        <!--  -->
+
         <!-- form ends here -->
 
         
@@ -82,7 +104,7 @@
             <!-- search bar here -->
             <div class="searchbar">
                 <img src="assets/searchbutton.svg">
-                <input type="text" placeholder="Search resources....">
+                <input name="searched" type="text" placeholder="Search resources....">
             </div>
             <!-- search bar ends here -->
 

@@ -94,14 +94,16 @@ document.addEventListener("click",(e)=>{
         if(form.style.display==="none"){
             overlay.style.display="flex";
             form.style.display="flex";
+            form.querySelector(".newSubjectName").value=subjectName;
         }
         e.target.closest(".card").scrollIntoView({
             behavior: "smooth",
             block: "center"
         })
-        overlay.addEventListener("click",(e)=>{
+        overlay.addEventListener("click",()=>{
             overlay.style.display="none";
             form.style.display="none";
+            form.reset();
         })
         document.getElementById("addnew").addEventListener("click",()=>{
             form.style.display="none";
@@ -131,3 +133,64 @@ document.getElementById("editSubject").addEventListener("submit",()=>{
 
 })
 ///////////
+
+
+//for edit category
+document.getElementById("editCategory").addEventListener("click",(e)=>e.stopPropagation());
+document.addEventListener("click",(e)=>{
+    
+    if(e.target.classList.contains("editSubjectCategory")){
+        e.stopPropagation();
+
+        const editForm=document.getElementById("editCategory");
+        const categoryCard=e.target.closest(".cardHero");
+        const subjectName=e.target.closest(".card").getAttribute("data-subject");
+        const categoryName=categoryCard.getAttribute("data-category");
+
+        editForm.dataset.currentCategory=categoryName;
+        editForm.dataset.currentSubject=subjectName;
+
+        if(editForm.style.display==="none"){
+            overlay.style.display="flex";
+            editForm.style.display="flex";
+            editForm.querySelector(".newCategoryName").value=categoryName;
+        }
+        e.target.closest(".categoryMain").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        })
+        overlay.addEventListener("click",()=>{
+            overlay.style.display="none";
+            editForm.style.display="none";
+            editForm.reset();
+        })
+        document.getElementById("addnew").addEventListener("click",()=>{
+            editForm.style.display="none";
+        })
+
+    }
+})
+
+document.getElementById("editCategory").addEventListener("submit",()=>{
+    
+    const subjects=JSON.parse(localStorage.getItem("subjects"))||[];
+
+    const editForm=document.getElementById("editCategory");
+    const subjectName=editForm.getAttribute("data-current-subject");
+    const categoryName=editForm.getAttribute("data-current-category");
+
+    const subject=subjects.find(s=>s.name===subjectName);
+    const category=subject.categories.find(c=>c.name===categoryName);
+    
+    let newCategoryName=editForm.querySelector(".newCategoryName").value;
+    console.log(editForm.querySelector("#selectCategoryNew").value);
+    if(!newCategoryName)newCategoryName=editForm.querySelector("#selectCategoryNew").value;
+    if(newCategoryName!=="" && confirm(`Are you sure to change name from "${categoryName}" to "${newCategoryName}"?`)){
+        category.name=newCategoryName;
+        localStorage.setItem("subjects",JSON.stringify(subjects));
+        location.reload();
+    }
+    
+
+})
+////////////

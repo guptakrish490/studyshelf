@@ -12,10 +12,11 @@
     background-color: rgba(0,0,0,0.5);
     z-index: 10;
     display: none;
+    backdrop-filter: blur(3px);
 }
 html{
     background: linear-gradient(170deg,rgb(207, 216, 230),white);
-    height: 100%;
+    height:100%;
 }
 header{
     height:70px;
@@ -65,23 +66,25 @@ header{
     text-shadow:0 0 3px #fff;
 }
 main{
-   height:90vh;
+   height:auto;
    display: flex;
    flex-direction: column;
    align-items: center;
+   background: linear-gradient(170deg,rgb(207, 216, 230),white);
 }
 .searchbar{
     width:100%;
-    height:12%;
-    max-height: 100px;
+    min-height: 45px;
+    max-height: 45px;
     border-radius: 8px;
     font-size: large;
     display: flex;
-    padding:15px;
+    padding:10px;
+    margin-bottom: 20px;
 }
-.searchbar>img{
+.searchbar img{
     width:5%;
-    height: 90%;
+    height:45px;
     background:rgb(211, 211, 211) ;
     border: none;
     border-right: none;
@@ -89,9 +92,9 @@ main{
     padding: 4px;
     box-shadow: -2px 2px 10px rgba(0,0,0,0.3) ;
 }
-.searchbar>input{
+.searchbar input{
     width:95%;
-    height:90%;
+    height:45px;
     background:rgb(211, 211, 211);
     border-radius: 0% 5px 5px 0%;
     border: none;
@@ -155,7 +158,7 @@ main{
 }
 #addnew:hover{
     box-shadow: 0 2px 10px rgba(7, 25, 104, 0.6);
-     background:radial-gradient(rgb(37, 37, 85),#2c71cc) ;
+    background:radial-gradient( #093c94,#4c91ae) ;
 }
 
 
@@ -173,13 +176,23 @@ main{
         height: 100%;
     }
     .searchbar{
-        max-height: 75px;
-        min-height: 68px;
+        max-height: 50px;
+        min-height: 45px;
         height: 11.5%;
         padding:8px;
         padding-top: 13px;
         img{
             width:6%;
+        }
+        input{
+            padding:3px;
+            font-size: smaller;
+            height:45px;
+        }
+        img{
+            height: 45px;
+            width: 9%;
+            
         }
     }
     #addResources{
@@ -206,16 +219,20 @@ main{
         width:14%;
     }
     .searchbar{
-        min-height:55px;
-        max-height: 60px;
-        padding: 4px;
+        height: auto;
         padding-top: 10px;
         img{
-            width:12%;
+            height: 40px;
         }
         input{
             padding:3px;
             font-size: smaller;
+            height:40px;
+        }
+        img{
+            height: 40px;
+            width: 13%;
+            
         }
     }
     #addResources{

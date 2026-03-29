@@ -60,7 +60,7 @@
     justify-content: space-around;
 }
 .extraOptions img{
-    height:30px;
+    height:25px;
 }
 .cardHero{
     height: auto;
@@ -79,7 +79,8 @@
 }
 .categoryMain{
     display: flex;
-    gap: 12%;
+    width: 100%;
+    gap: 10%;
 }
 .items{
     height:70%;
@@ -154,6 +155,7 @@
     background:transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width:20px;
 
 }
 .addMoreLinks img,.deleteCategory img,.editSubjectCategory{
