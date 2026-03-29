@@ -1,3 +1,4 @@
+/* for new subject form */
 #cardCancelButton{
     border-radius: 5px;
     border: 1px solid grey;
@@ -29,17 +30,17 @@
     padding: 3%;
     justify-content: center;
     align-items: flex-start;
-    background-color: #e1e1e1;
+    background:linear-gradient(170deg,rgb(105, 105, 107),rgb(210, 208, 208));
     box-shadow: 0 3px 10px rgba(0,0,0,0.6);
 }
 #formContainer h2{
-    color: rgb(51, 67, 208);
-    font-family: 'Roboto Slab';
+    color: rgb(76, 84, 155);
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
-    border-bottom: 0.5px solid grey;
+    text-shadow: 0 0 5px rgb(125, 125, 172);
+    border-bottom: 0.5px solid rgb(79, 79, 81);
     width: 100%;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(59, 59, 129, 0.3);
 
 }
 #formContainer span{
@@ -50,6 +51,7 @@
 #subject{
     width:100%;
     min-height: 34px;
+    background-color:  #d1cfd1;
     border-radius: 6px;
     border: 0.5px solid grey;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -70,7 +72,7 @@
     width:90%;
     min-height: 28px;
     border-radius: 6px;
-    background-color: #f8f7fa;
+    background-color: #e3e2e3;
     border: 0.5px solid gray;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 
@@ -95,9 +97,9 @@
     width:40%;
     height: 35px;
     padding: 3px;
-    background: #2169c6;
+    background: linear-gradient(160deg, #56aacd, #0c48b0);
     border: 1px solid white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px  rgba(0,0,0,0.2);
     border-radius: 6px;
     color: #eae8e8;
     border: none;
@@ -107,8 +109,64 @@
 #formButtons button:hover{
     transition: all;
     transform: scale(1.05);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
+
+
+/* for  edit subject form */
+#editSubject{
+    position: fixed;
+    width:30%;
+    z-index: 8;
+    min-width: 240px;
+    max-width: 320px;
+    height: auto;
+    padding-bottom: 10px;
+    top: 50%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: rgb(240, 239, 239);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    gap: 5px;
+}
+#editSubject h3{
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    background: rgb(240, 239, 239);
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-family: 'Roboto Slab';
+    color: #2169c6;
+}
+.inputEditSubject{
+    width: 100%;
+    max-height: 40px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.inputEditSubject input{
+    width:50%;
+    border: 0.2px solid grey;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#saveEditSubject{
+    width:30%;
+    height: 25px;
+    border: none;
+    font-family: 'Roboto Slab';
+    color: white;
+    background: #2169c6;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
 
 @media screen and (max-width:768px) {
     #formContainer{

@@ -1,3 +1,4 @@
+//for new subject form
 const addNewBtn=document.getElementById("addnew");
 const formContainer=document.getElementById("formContainer");
 const overlay=document.getElementById("overlay");
@@ -14,6 +15,11 @@ addNewBtn.addEventListener("click",()=>{
         addNewBtn.style.transform="rotateZ(180deg)";
         overlay.style.display="none";
     }
+    overlay.addEventListener("click",()=>{
+        overlay.style.display="none";
+        formContainer.style.display="none";
+        addNewBtn.style.transform="rotateZ(180deg)";
+    })
 
 })
 
@@ -24,6 +30,7 @@ document.getElementById("cancelSave").addEventListener("click",()=>{
 })
 
 
+document.getElementById("formContainer").addEventListener("click",(e)=>e.stopPropagation());
 document.getElementById("formContainer").addEventListener("submit", (e) => {
     // e.preventDefault();
 
@@ -65,3 +72,62 @@ document.getElementById("formContainer").addEventListener("submit", (e) => {
         renderCards();
     }
 });
+///////////
+
+
+
+// for edit subject
+document.getElementById("editSubject").addEventListener("click",(e)=>e.stopPropagation());
+
+document.addEventListener("click",(e)=>{
+    
+    
+    if(e.target.classList.contains("editSubjectImg")){
+        e.stopPropagation();
+        const form=document.getElementById("editSubject");
+        const overlay=document.getElementById("overlay");
+        const subjectName=e.target.closest(".card").getAttribute("data-subject");
+        
+
+        form.dataset.currentSubject=subjectName;
+
+        if(form.style.display==="none"){
+            overlay.style.display="flex";
+            form.style.display="flex";
+        }
+        e.target.closest(".card").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        })
+        overlay.addEventListener("click",(e)=>{
+            overlay.style.display="none";
+            form.style.display="none";
+        })
+        document.getElementById("addnew").addEventListener("click",()=>{
+            form.style.display="none";
+        })
+        
+
+    }
+
+})
+
+document.getElementById("editSubject").addEventListener("submit",()=>{
+    
+    const subjects=JSON.parse(localStorage.getItem("subjects"))||[];
+
+    const subjectName=document.getElementById("editSubject").getAttribute("data-current-subject");
+    const subject=subjects.find(s=> s.name===subjectName);
+
+    const form=document.getElementById("editSubject");
+    const newSubjectName=form.querySelector(".newSubjectName").value;
+
+    if(confirm(`Are you sure to change name from '${subjectName}' to '${newSubjectName}'?`)){
+        subject.name=newSubjectName;
+        localStorage.setItem("subjects",JSON.stringify(subjects));
+
+        location.reload();
+    }
+
+})
+///////////

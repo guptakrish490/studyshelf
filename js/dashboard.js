@@ -1,9 +1,9 @@
 const cards=JSON.parse(localStorage.getItem("subjects"))|| [];
 
 //render cards on page reload
-document.addEventListener("DOMContentLoaded", function() {
-    renderCards(); 
-});
+document.addEventListener("DOMContentLoaded",()=>{
+    renderCards();
+})
 if(cards.length===0){
     document.getElementById("cardContainer").innerHTML=`<p>No Resources to Display...</p>
                             <button id="addResources">+ Add Resources</button>`;
@@ -25,6 +25,7 @@ document.getElementById("addResources").addEventListener("click",()=>{
     }
 })
 function renderCards(){
+
     const cards=JSON.parse(localStorage.getItem("subjects"))||[];
     const cardContainer=document.getElementById("cardContainer");
 
@@ -39,7 +40,8 @@ function renderCards(){
             let html=`<div class="cardMain">
                         <h3>${sub.name}</h3>
                         <div class="extraOptions">
-                            <img class="editSubjectImg" src="assets/addNewCategoryBtn.svg" alt="edit">
+                            <img class="addSubjectImg" src="assets/addNewCategoryBtn.svg" alt="edit">
+                            <img class="editSubjectImg" src="assets/pencilEdit.svg" alt="edit">
                             <img class="deleteSubjectImg" src="assets/removeBin.svg" alt="remove">
                         </div>
                     </div>`;
@@ -50,6 +52,7 @@ function renderCards(){
                                 <div class="categoryMain">
                                     <h4>${cat.name}</h4>
                                     <button class="addMoreLinks"><img class="addMoreFiles" src="assets/addNewCategoryBtn.svg" alt="add"></button>
+                                    <button class="editCategory"><img class="editSubjectCategory" src="assets/pencilEdit.svg" alt="edit"></button>
                                     <button class="deleteCategory"><img class="deleteSubjectCategory" src="assets/removeBin.svg" alt="delete"></button>
                                 </div>
                                 `;
@@ -91,7 +94,6 @@ function renderCards(){
         cardContainer.appendChild(newCard);
     });
 }
-
 }
 /////////////
 
@@ -99,7 +101,7 @@ function renderCards(){
 
 // for adding more category to a card
 document.addEventListener("click",(e)=>{
-    if(e.target.classList.contains("editSubjectImg")){
+    if(e.target.classList.contains("addSubjectImg")){
         const parentDiv = e.target.parentElement.parentElement.parentElement;
         const categoryForm = parentDiv.querySelector(".addMoreCategory");
  
@@ -110,7 +112,7 @@ document.addEventListener("click",(e)=>{
 
             categoryForm.scrollIntoView({
             behavior: "smooth",
-            block: "start"
+            block: "center"
         });
         }
     }
@@ -144,7 +146,7 @@ document.addEventListener("submit",(e)=>{
         
         categoryForm.style.display="none";
 
-        currentCard.querySelector(".cardHero").scrollIntoView({
+        currentCard.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
@@ -199,12 +201,22 @@ document.addEventListener("click",(e)=>{
         const card=e.target.parentElement.parentElement.parentElement.parentElement;
         const inputForm = Array.from(card.querySelectorAll(".addMoreFilesForm")).find(i => i.getAttribute("data-formCategory")===categoryName);
 
-        if(inputForm.style.display!=="none") inputForm.style.display="none";
-
+        if(inputForm.style.display!=="none"){
+            inputForm.style.display="none";
+            category.parentElement.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            })
+        }
 
         else {
             inputForm.style.display="flex";
+            inputForm.scrollIntoView({
+                behavior: "smooth",
+                block:"center"
+            })
         }
+
 
     }
 });

@@ -6,6 +6,7 @@
     align-items: center;
     border-radius: 10px;
     padding: 17px;
+    padding-bottom: 90px;
     gap:30px;
     p{
         font-style: italic;
@@ -13,14 +14,13 @@
         font-size: large;
     }
 }
-
 .card{
     overflow-x: auto;
     scrollbar-width: none;
     height: auto;
     width: 100%;
     border-radius: 8px;
-    background-color: #ffffff;
+    background: linear-gradient(175deg,rgb(203, 203, 203),rgb(255, 255, 255));
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     cursor: pointer;
     display: flex;
@@ -29,6 +29,7 @@
 }
 .card:hover{
     transform: translateY(-5px);
+    background: linear-gradient(175deg,rgb(186, 186, 186),rgb(253, 249, 249));
     box-shadow: 0 2px 10px rgba(0,0,0,0.7);
     transition: all 0.3s ease;
 
@@ -52,7 +53,7 @@
     white-space: nowrap;
 }
 .extraOptions{
-    width:30%;
+    width:50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -74,10 +75,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: 'Libre Baskerville';
 }
 .categoryMain{
     display: flex;
-    gap: 15%;
+    gap: 12%;
 }
 .items{
     height:70%;
@@ -93,13 +95,14 @@
 .cardHero a{
     color: rgb(17, 43, 130);
     text-decoration: none;
+    font-family: 'Roboto Slab';
 }
 .cardHero a:hover{
     text-decoration: underline;
 }
 
 
-
+/* new category add form */
 .addMoreCategory{
     min-width:130px;
     max-height: 130px;
@@ -144,21 +147,62 @@
     display: flex;
     justify-content: flex-start;
 }
-.addMoreLinks,.deleteCategory{
+.addMoreLinks,.deleteCategory,.editCategory{
     max-height: 20px;
     border-radius: 50%;
     border: none;
-    background: rgb(235, 235, 235);
+    background:transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
 
 }
-.addMoreLinks img,.deleteCategory img{
+.addMoreLinks img,.deleteCategory img,.editSubjectCategory{
     height: 100%;
 }
 
 
-
+/* new files add form */
+.addMoreFilesForm{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100px;
+    padding: 10px;
+    width: 98%;
+    align-self: center;
+    border-radius: 8px;
+    background: linear-gradient(175deg,rgb(203, 203, 203),rgb(255, 255, 255));
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    gap: 10px;
+    font-family: 'Libre Baskerville';
+}
+.addMoreFilesForm .inputs{
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto Slab';
+    font-weight: 500;
+    font-size: small;
+}
+.addNewTitle,.addNewLink{
+    width: 130px;
+    height: 20px;
+    font-size: smaller;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.addMoreFilesForm span{
+    min-width:80px;
+}
+.saveAddedFiles{
+    width: 70px;
+    padding: 4px;
+    border: none;
+    background: rgb(58, 58, 199);
+    color: white;
+    border-radius: 5px;
+    font-size: small;
+}
 
 @media screen and (max-width: 768px) {
     .cardContainer{

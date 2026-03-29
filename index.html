@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/form.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');
     </style>
@@ -42,6 +43,16 @@
             </div>
 
         </form>
+
+        <!-- form for subject edit -->
+        <form action="index.html" class="editSubject" id="editSubject" style="display: none;">
+            <h3>Edit Subject</h3>
+            <div class="inputEditSubject">
+                <span>Subject Name:</span><input type="text" class="newSubjectName" placeholder="Enter Subject Name" required>
+            </div>
+            <button id="saveEditSubject">Save</button>
+        </form>
+        <!-- form ends here -->
 
         <!-- form ends here -->
 
@@ -85,14 +96,14 @@
 
 
     <!-- fixed add button -->
-    <button id="addnew">
+    <button id="addnew" draggable="true">
         <img id="addNewBtn" src="assets/addNewBtn.svg">
     </button>
     <!-- fixed add button ends here -->
 
     
     <script src="js/form.js" defer></script>
-    <script src="js/dashboard.js" defer></script>
+    <script src="js/dashboard.js"></script>
 
 
 </body>
