@@ -1,6 +1,7 @@
 .cardContainer{
     width:97%;
-    height:auto;
+    min-height:100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,9 +9,10 @@
     padding: 17px;
     padding-bottom: 90px;
     gap:30px;
+    background: transparent;
     p{
         font-style: italic;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Roboto Slab', Times, serif;
         font-size: large;
     }
 }
@@ -20,12 +22,21 @@
     height: auto;
     width: 100%;
     border-radius: 8px;
-    background: linear-gradient(175deg,rgb(203, 203, 203),rgb(255, 255, 255));
+    background: linear-gradient(175deg,rgb(180, 179, 179),rgb(255, 255, 255));
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     
+}
+.miniCard{
+    padding-left: 10px;
+    display: flex;
+}
+.miniCard span{
+    font-family:serif;
+    padding: 4px;
+    color: rgb(116, 115, 115);
 }
 .card:hover{
     transform: translateY(-5px);
@@ -36,13 +47,18 @@
 }
 .cardMain{
     width: 100%;
-    min-height:45px;
+    min-height:35px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.5);
     border-radius: 8px 8px 0 0;
     padding-left: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.expandCard{
+    width:15px;
+    height: 100%;
+    transition: all 0.2s ease;
 }
 .cardMain h3{
     font-size: larger;
@@ -68,6 +84,7 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
+    display: none;
 }
 .cardHero h4{
     max-width: 105px;
@@ -82,19 +99,18 @@
     width: 100%;
     gap: 10%;
 }
-.items{
+.item{
     height:70%;
     width: 100%;
-    padding: 10px;
     display: flex;
-    gap: 25px;
+    gap: 10px;
     align-items: center;
 }
 .cardHero span{
     color: rgb(127, 125, 125);
 }
 .cardHero a{
-    color: rgb(17, 43, 130);
+    color: rgb(95, 96, 96);
     text-decoration: none;
     font-family: 'Roboto Slab';
 }
@@ -206,6 +222,20 @@
     font-size: small;
 }
 
+
+/* for deleting files */
+.deleteFiles{
+    width:15px;
+    opacity: 0;
+    transition: opacity 0.1s ease, transform 0.4s ease;
+
+}
+.item:hover .deleteFiles, .item:active .deleteFiles{
+    opacity: 1;
+}
+
+
+
 @media screen and (max-width: 768px) {
     .cardContainer{
         width:100%;
@@ -223,9 +253,13 @@
         height: 20px;
         font-size: 13px;
     }
+    .expandCard{
+        width:17px;
+        height: 100%;
+    }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 428px){
     .addMoreCategory span{
         width:135px;
         overflow: hidden;
@@ -241,5 +275,12 @@
         width: 100px;
         height: 20px;
         font-size: 12px;
+    }
+    .item{
+        gap:5px;
+    }
+    .expandCard{
+        width:15px;
+        height: 100%;
     }
 }

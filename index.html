@@ -23,18 +23,18 @@
         <form action="index.html" id="formContainer" style="display: none">
 
             <h2>Add New Subject</h2>
-            <span>Subject Name:</span><input id="subject" type="text" placeholder="Enter Subject Name" required>
+            <span>Subject Name:<span style="color: rgb(210, 97, 97);"> *</span></span><input id="subject" type="text" placeholder="Enter Subject Name" required>
             <span>Resources:</span>
             <div id="subjectInput" class="subjectInput">
                 <select id="selectDropdown">
-                    <option selected disabled value="Select a Category">Select a Category</option aria-required>
+                    <option selected disabled value="">Select a Category</option>
                     <option value="Class Notes">Class Notes</option>
                     <option value="Assignments">Assignments</option>
                     <option value="PYQs">PYQs</option>
                     <option value="Others">Others</option>
                 </select>
-                <input id="title" type="text" placeholder="Enter Title" required>
-                <input id="link" type="text" placeholder="Paste your G-drive #Link here" required>
+                <input id="title" type="text" placeholder="Enter Title">
+                <input id="link" type="text" placeholder="Paste your G-drive #Link here">
             </div>
 
             <div id="formButtons">
@@ -126,6 +126,7 @@
     
     <script src="js/form.js" defer></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/deleteFiles.js"></script>
 
 
 </body>

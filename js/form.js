@@ -11,6 +11,7 @@ addNewBtn.addEventListener("click",()=>{
         addNewBtn.style.transform="rotateZ(45deg) scaleX(1.1) scaleY(1.1)"
     }
     else{
+        formContainer.reset();
         formContainer.style.display="none";
         addNewBtn.style.transform="rotateZ(180deg)";
         overlay.style.display="none";
@@ -27,22 +28,22 @@ document.getElementById("cancelSave").addEventListener("click",()=>{
     formContainer.style.display="none";
     overlay.style.display="none";
     addNewBtn.style.transform="rotateZ(180deg)";
+    formContainer.reset();
 })
 
 
 document.getElementById("formContainer").addEventListener("click",(e)=>e.stopPropagation());
-document.getElementById("formContainer").addEventListener("submit", (e) => {
-    // e.preventDefault();
+document.getElementById("formContainer").addEventListener("submit", () => {
 
-    let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+    const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
     
     const subjectName = document.getElementById("subject").value;
-    const categoryName = document.getElementById("selectDropdown").value;
-    const titleName = document.getElementById("title").value;
-    const driveLink = document.getElementById("link").value;
+    const categoryName = document.getElementById("selectDropdown").value || null;
+    const titleName = document.getElementById("title").value || null;
+    const driveLink = document.getElementById("link").value || null;
     
     console.log("saved:", subjects);
-    let existingSubject = subjects.find(s => s.name === subjectName);
+    const existingSubject = subjects.find(s => s.name.toLowerCase() === subjectName.toLowerCase());
     
     if (existingSubject) {
        alert(`Subject with name "${existingSubject.name}" already exists!\nPlease add more Categories if needed!`);
@@ -66,7 +67,6 @@ document.getElementById("formContainer").addEventListener("submit", (e) => {
         
         subjects.push(subject);
         localStorage.setItem("subjects", JSON.stringify(subjects));
-        console.log("saved:", subjects);
         location.reload();
         
         renderCards();
@@ -128,8 +128,12 @@ document.getElementById("editSubject").addEventListener("submit",()=>{
         subject.name=newSubjectName;
         localStorage.setItem("subjects",JSON.stringify(subjects));
 
-        location.reload();
+        overlay.style.display="none";
+        form.style.display="none";
+        renderCards();
     }
+    const updatedCard = document.querySelector(`.card[data-subject="${newSubjectName}"]`);
+    expandCard(updatedCard);
 
 })
 ///////////
@@ -182,14 +186,19 @@ document.getElementById("editCategory").addEventListener("submit",()=>{
     const subject=subjects.find(s=>s.name===subjectName);
     const category=subject.categories.find(c=>c.name===categoryName);
     
-    let newCategoryName=editForm.querySelector(".newCategoryName").value;
-    console.log(editForm.querySelector("#selectCategoryNew").value);
-    if(!newCategoryName)newCategoryName=editForm.querySelector("#selectCategoryNew").value;
-    if(newCategoryName!=="" && confirm(`Are you sure to change name from "${categoryName}" to "${newCategoryName}"?`)){
+    let newCategoryName=editForm.querySelector("#selectCategoryNew").value;
+    if((newCategoryName==="Select a Category"))newCategoryName=editForm.querySelector(".newCategoryName").value;
+    if((newCategoryName!=="Select a Category") && confirm(`Are you sure to change name from "${categoryName}" to "${newCategoryName}"?`)){
         category.name=newCategoryName;
         localStorage.setItem("subjects",JSON.stringify(subjects));
-        location.reload();
+
+        overlay.style.display="none";
+        editForm.style.display="none";
+        renderCards();
     }
+
+    const updatedCard = document.querySelector(`.card[data-subject="${subjectName}"]`);
+    expandCard(updatedCard);
     
 
 })

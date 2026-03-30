@@ -34,10 +34,13 @@ function renderCards(){
 
     cards.forEach(sub => {
 
+        if(sub.name){
+
         const newCard=document.createElement("div");
             newCard.classList.add("card");
             newCard.dataset.subject=`${sub.name}`;
             let html=`<div class="cardMain">
+                        <img src="assets/scrollDown.svg" class="expandCard">&nbsp
                         <h3>${sub.name}</h3>
                         <div class="extraOptions">
                             <img class="addSubjectImg" src="assets/addNewCategoryBtn.svg" alt="edit">
@@ -48,7 +51,9 @@ function renderCards(){
                     
                     
                 sub.categories.forEach(cat=>{
-                    html+=`<div class="cardHero" data-category="${cat.name}">
+                    
+                    if(cat.name){
+                    html+=`<div class="cardHero" data-category="${cat.name}" style="display:none;">
                                 <div class="categoryMain">
                                     <h4>${cat.name}</h4>
                                     <button class="addMoreLinks"><img class="addMoreFiles" src="assets/addNewCategoryBtn.svg" alt="add"></button>
@@ -59,9 +64,15 @@ function renderCards(){
 
 
                     cat.items.forEach(item=>{
-                        html+=`     <div class="item">
-                                        • <a href="${item.link}" target="_blank">${item.title}</a>
+
+                        if(item.title && item.link){
+
+                            html+=` <div class="item">
+                                        •<a href="${item.link}" target="_blank">${item.title}</a>
+                                        <img src="assets/removeBin.svg" class="deleteFiles">
                                     </div>`;
+
+                        }
 
                     })
                     html+=`</div>`;
@@ -75,6 +86,14 @@ function renderCards(){
 
                                 <button class="saveAddedFiles">Save</button>
                             </form>`
+
+                    
+                    html+=` <div class="miniCard">
+                                <span class="miniNames">• ${cat.name}</span>  
+                            </div>`;
+
+                }
+
                 });
                 html+=`     <form class="addMoreCategory" style="display:none">
                                 <span>Add a new Category:&nbsp </span>
@@ -90,8 +109,10 @@ function renderCards(){
                                 <button class=saveAddMoreCategory>Save</button>
                         </form>`;
 
-        newCard.innerHTML=html;
-        cardContainer.appendChild(newCard);
+            newCard.innerHTML=html;
+            cardContainer.appendChild(newCard);
+
+            }
     });
 }
 }
@@ -152,6 +173,8 @@ document.addEventListener("submit",(e)=>{
         });
     
         renderCards();
+        const updatedCard = document.querySelector(`.card[data-subject="${currentSubjectName}"]`);
+        expandCard(updatedCard);
 
         
 
@@ -184,6 +207,8 @@ document.addEventListener("click",(e)=>{
         }
 
         renderCards();
+        const updatedCard = document.querySelector(`.card[data-subject="${subjectName}"]`);
+        expandCard(updatedCard);
 
 
     }
@@ -221,12 +246,13 @@ document.addEventListener("click",(e)=>{
     }
 });
 document.addEventListener("submit",(e)=>{
+    e.preventDefault();
 
     const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
 
     if(e.target.classList.contains("addMoreFilesForm")){
         
-        const card=e.target.parentElement.parentElement.parentElement.parentElement;
+        const card=e.target.closest(".card");
         const inputForm=e.target;
 
         const titleName=inputForm.querySelector(".addNewTitle").value;
@@ -266,9 +292,11 @@ document.addEventListener("submit",(e)=>{
         else {
             inputForm.style.display="flex";
         }
+        renderCards();
+        const updatedCard = document.querySelector(`.card[data-subject="${subjectName}"]`);
+        expandCard(updatedCard);
         
     }
-    renderCards();
 })
 /////////////
 
@@ -299,7 +327,86 @@ document.addEventListener("click",(e)=>{
         }
         
         renderCards();
+        const updatedCard = document.querySelector(`.card[data-subject="${subjectName}"]`);
+        expandCard(updatedCard);
 
+    }
+})
+////////////
+
+//delete selected file from category
+document.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    const subjects=JSON.parse(localStorage.getItem("subjects"))||[];
+
+    if(e.target.classList.contains("deleteFiles")){
+        const card=e.target.closest(".card");
+        const subjectName=card.getAttribute("data-subject");
+        const categoryName=e.target.closest(".cardHero").getAttribute("data-category");
+        const fileName=e.target.closest(".item").querySelector("a").textContent;
+        
+        const subject=subjects.find(s=>s.name===subjectName);
+        const category=subject.categories.find(c=>c.name===categoryName);
+
+        const updatedFiles=category.items.filter(f=>f.title!==fileName);
+
+        if(confirm(`Are you sure to delete the '${fileName}'?`)){
+            category.items=updatedFiles;
+            localStorage.setItem("subjects",JSON.stringify(subjects));
+        }
+        renderCards();
+        const updatedCard = document.querySelector(`.card[data-subject="${subjectName}"]`);
+        expandCard(updatedCard);
+    }
+})
+////////////
+
+
+
+//expand cards by click
+function expandCard(card){
+
+    card.querySelector(".expandCard").style.transform="rotateX(180deg)";
+
+    const cardHero=card.querySelectorAll(".cardHero");
+    cardHero.forEach(c=>{
+        c.style.display="flex";
+    })
+
+    const miniCard=card.querySelectorAll(".miniCard");
+    miniCard.forEach(m=>{
+        m.style.display="none";
+    })
+}
+document.addEventListener("click",(e)=>{
+    e.stopPropagation();
+
+    if(e.target.classList.contains("expandCard") || e.target.classList.contains("miniCard")){
+        const card=e.target.closest(".card");
+        const cardHero=card.querySelectorAll(".cardHero");
+
+        cardHero.forEach(c=>{
+
+            if(c.style.display!=="none"){
+                c.style.display="none";
+                card.querySelector(".expandCard").style.transform="rotateZ(0deg)"
+            }
+            else{
+                c.style.display="flex";
+                card.querySelector(".expandCard").style.transform="rotateZ(180deg)"
+            }
+            
+        })
+
+
+        const miniCard=card.querySelectorAll(".miniCard");
+
+        miniCard.forEach(m=>{
+
+            if(m.style.display!=="none")m.style.display="none";
+            else m.style.display="flex";
+
+        })
     }
 })
 ////////////
