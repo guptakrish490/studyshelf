@@ -4,11 +4,6 @@ const cards = JSON.parse(localStorage.getItem("subjects")) || [];
 document.addEventListener("DOMContentLoaded", () => {
     renderCards();
 })
-if (cards.length === 0) {
-    document.getElementById("cardContainer").innerHTML = `<p>No Resources to Display...</p>
-                            <button id="addResources">+ Add Resources</button>`;
-
-}
 ////////////
 
 
@@ -115,6 +110,24 @@ function renderCards() {
             }
         });
     }
+    else {
+        cardContainer.innerHTML = `
+            <p>No Resources to Display...</p>
+            <button id="addResources">+ Add Resources</button>
+        `;
+
+        const addBtn = document.getElementById("addResources");
+        addBtn.addEventListener("click", () => {
+            if (formContainer.style.display === "none") {
+                formContainer.style.display = "flex";
+                overlay.style.display = "flex";
+            } else {
+                formContainer.style.display = "none";
+                overlay.style.display = "none";
+            }
+        });
+    }
+
 }
 /////////////
 
