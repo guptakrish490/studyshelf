@@ -1,6 +1,6 @@
-.cardContainer{
-    width:97%;
-    min-height:100vh;
+.cardContainer {
+    width: 97%;
+    min-height: 100vh;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -8,59 +8,67 @@
     border-radius: 10px;
     padding: 17px;
     padding-bottom: 90px;
-    gap:30px;
+    gap: 30px;
     background: transparent;
-    p{
+
+    p {
         font-style: italic;
         font-family: 'Roboto Slab', Times, serif;
         font-size: large;
     }
 }
-.card{
+
+.card {
     overflow-x: auto;
     scrollbar-width: none;
     height: auto;
     width: 100%;
     border-radius: 8px;
-    background: linear-gradient(175deg,rgb(180, 179, 179),rgb(255, 255, 255));
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    background: linear-gradient(175deg, rgb(180, 179, 179), rgb(255, 255, 255));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    
+
 }
-.miniCard{
+
+.miniCard {
     padding-left: 10px;
     display: flex;
 }
-.miniCard span{
-    font-family:serif;
+
+.miniCard span {
+    font-family: serif;
     padding: 4px;
     color: rgb(116, 115, 115);
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-5px);
-    background: linear-gradient(175deg,rgb(186, 186, 186),rgb(253, 249, 249));
-    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    background: linear-gradient(175deg, rgb(186, 186, 186), rgb(253, 249, 249));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
     transition: all 0.3s ease;
 
 }
-.cardMain{
+
+.cardMain {
     width: 100%;
-    min-height:35px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    min-height: 35px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     border-radius: 8px 8px 0 0;
     padding-left: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.expandCard{
-    width:15px;
+
+.expandCard {
+    width: 15px;
     height: 100%;
     transition: all 0.2s ease;
 }
-.cardMain h3{
+
+.cardMain h3 {
     font-size: larger;
     min-width: 130px;
     overflow: hidden;
@@ -68,17 +76,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.extraOptions{
-    width:50%;
+
+.extraOptions {
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.extraOptions img{
-    height:25px;
+
+.extraOptions img {
+    height: 25px;
 }
-.cardHero{
+
+.cardHero {
     height: auto;
     padding: 10px;
     display: flex;
@@ -86,7 +97,8 @@
     margin: 10px;
     display: none;
 }
-.cardHero h4{
+
+.cardHero h4 {
     max-width: 105px;
     min-width: 105px;
     overflow: hidden;
@@ -94,60 +106,68 @@
     white-space: nowrap;
     font-family: 'Libre Baskerville';
 }
-.categoryMain{
+
+.categoryMain {
     display: flex;
     width: 100%;
     gap: 10%;
 }
-.item{
-    height:70%;
+
+.item {
+    height: 70%;
     width: 100%;
     display: flex;
     gap: 10px;
     align-items: center;
 }
-.cardHero span{
+
+.cardHero span {
     color: rgb(127, 125, 125);
 }
-.cardHero a{
+
+.cardHero a {
     color: rgb(95, 96, 96);
     text-decoration: none;
     font-family: 'Roboto Slab';
 }
-.cardHero a:hover{
+
+.cardHero a:hover {
     text-decoration: underline;
 }
 
 
 /* new category add form */
-.addMoreCategory{
-    min-width:130px;
+.addMoreCategory {
+    min-width: 130px;
     max-height: 130px;
     height: auto;
     display: flex;
     align-items: center;
     padding: 10px;
     gap: 0%;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-    
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+
 }
-.addMoreCategory span{
+
+.addMoreCategory span {
     font-size: 15px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.saveAddMoreCategory{
-    width:75px;
+
+.saveAddMoreCategory {
+    width: 75px;
     height: 25px;
-    max-height:140px;
+    max-height: 140px;
     margin-left: 6%;
-    border:none;
+    border: none;
     border-radius: 5px;
     color: #ffffff;
     background: rgb(79, 79, 205);
     font-size: small;
     font-weight: 500;
 }
-.newCategory{
+
+.newCategory {
     width: 130px;
     height: 25px;
     font-size: 15px;
@@ -156,31 +176,39 @@
     border: none;
     border-bottom: 0.5px solid grey;
 }
-.newCategory::placeholder{
+
+.newCategory::placeholder {
     text-align: end;
 }
-.newCategoryDiv{
+
+.newCategoryDiv {
     width: auto;
     display: flex;
     justify-content: flex-start;
 }
-.addMoreLinks,.deleteCategory,.editCategory{
+
+.addMoreLinks,
+.deleteCategory,
+.editCategory {
     max-height: 20px;
     border-radius: 50%;
     border: none;
-    background:transparent;
+    background: transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width:20px;
+    width: 20px;
 
 }
-.addMoreLinks img,.deleteCategory img,.editSubjectCategory{
+
+.addMoreLinks img,
+.deleteCategory img,
+.editSubjectCategory {
     height: 100%;
 }
 
 
 /* new files add form */
-.addMoreFilesForm{
+.addMoreFilesForm {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -189,30 +217,35 @@
     width: 98%;
     align-self: center;
     border-radius: 8px;
-    background: linear-gradient(175deg,rgb(203, 203, 203),rgb(255, 255, 255));
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(175deg, rgb(203, 203, 203), rgb(255, 255, 255));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     gap: 10px;
     font-family: 'Libre Baskerville';
 }
-.addMoreFilesForm .inputs{
+
+.addMoreFilesForm .inputs {
     display: flex;
     align-items: center;
     font-family: 'Roboto Slab';
     font-weight: 500;
     font-size: small;
 }
-.addNewTitle,.addNewLink{
+
+.addNewTitle,
+.addNewLink {
     width: 130px;
     height: 20px;
     font-size: smaller;
     border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
-.addMoreFilesForm span{
-    min-width:80px;
+
+.addMoreFilesForm span {
+    min-width: 80px;
 }
-.saveAddedFiles{
+
+.saveAddedFiles {
     width: 70px;
     padding: 4px;
     border: none;
@@ -224,63 +257,73 @@
 
 
 /* for deleting files */
-.deleteFiles{
-    width:15px;
+.deleteFiles {
+    width: 17px;
     opacity: 0;
     transition: opacity 0.1s ease, transform 0.4s ease;
 
 }
-.item:hover .deleteFiles, .item:active .deleteFiles{
+
+.item:hover .deleteFiles,
+.item:active .deleteFiles {
     opacity: 1;
 }
 
 
 
 @media screen and (max-width: 768px) {
-    .cardContainer{
-        width:100%;
+    .cardContainer {
+        width: 100%;
         padding: 8px;
     }
-    .cardMain h3{
+
+    .cardMain h3 {
         font-size: medium;
     }
-    .categoryMain{
-    display: flex;
-    justify-content: space-between;
+
+    .categoryMain {
+        display: flex;
+        justify-content: space-between;
     }
-    .newCategory{
+
+    .newCategory {
         width: 120px;
         height: 20px;
         font-size: 13px;
     }
-    .expandCard{
-        width:17px;
+
+    .expandCard {
+        width: 17px;
         height: 100%;
     }
 }
 
-@media screen and (max-width: 428px){
-    .addMoreCategory span{
-        width:135px;
+@media screen and (max-width: 428px) {
+    .addMoreCategory span {
+        width: 135px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size: 13px;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
-    .saveAddMoreCategory{
+
+    .saveAddMoreCategory {
         height: 20px;
     }
-    .newCategory{
+
+    .newCategory {
         width: 100px;
         height: 20px;
         font-size: 12px;
     }
-    .item{
-        gap:5px;
+
+    .item {
+        gap: 5px;
     }
-    .expandCard{
-        width:15px;
+
+    .expandCard {
+        width: 15px;
         height: 100%;
     }
 }

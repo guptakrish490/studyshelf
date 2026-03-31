@@ -23,7 +23,8 @@
         <form action="index.html" id="formContainer" style="display: none">
 
             <h2>Add New Subject</h2>
-            <span>Subject Name:<span style="color: rgb(210, 97, 97);"> *</span></span><input id="subject" type="text" placeholder="Enter Subject Name" required>
+            <span>Subject Name:<span style="color: rgb(210, 97, 97);"> *</span></span><input id="subject" type="text"
+                placeholder="Enter Subject Name" required>
             <span>Resources:</span>
             <div id="subjectInput" class="subjectInput">
                 <select id="selectDropdown">
@@ -48,7 +49,8 @@
         <form action="index.html" class="editSubject" id="editSubject" style="display: none;">
             <h3>Edit Subject</h3>
             <div class="inputEditSubject">
-                <span>Subject Name:</span><input type="text" class="newSubjectName" placeholder="Enter Subject Name" required>
+                <span>Subject Name:</span><input type="text" class="newSubjectName" placeholder="Enter Subject Name"
+                    required>
             </div>
             <button id="saveEditSubject">Save</button>
         </form>
@@ -58,7 +60,8 @@
         <form action="index.html" class="editCategory" id="editCategory" style="display: none;">
             <h3>Edit Category</h3>
             <div class="inputEditCategory">
-                <span>Category Name:</span><input name="newCategoryName" type="text" class="newCategoryName" placeholder="Enter Category Name">
+                <span>Category Name:</span><input name="newCategoryName" type="text" class="newCategoryName"
+                    placeholder="Enter Category Name">
             </div>
 
             <div class="inputEditCategory">
@@ -78,41 +81,41 @@
 
         <!-- form ends here -->
 
-        
+
     </div>
-    
+
 
 
 
 
     <!-- navbar part starts here -->
-        <header>
-            <div class="logo">
-                <div class="logoImg">
-                    <img src="assets/logo.svg">
-                </div>
-                <div class="nameofLogo">
-                    <h2>StudyShelf</h2>
-                </div>
+    <header>
+        <div class="logo">
+            <div class="logoImg">
+                <img src="assets/logo.svg">
             </div>
-        </header>
+            <div class="nameofLogo">
+                <h2>StudyShelf</h2>
+            </div>
+        </div>
+    </header>
     <!-- navbar part ends here -->
 
 
     <!-- main section starts here -->
     <main>
-            <!-- search bar here -->
-            <div class="searchbar">
-                <img src="assets/searchbutton.svg">
-                <input name="searched" type="text" placeholder="Search resources....">
-            </div>
-            <!-- search bar ends here -->
+        <!-- search bar here -->
+        <div class="searchbar">
+            <img src="assets/searchbutton.svg">
+            <input name="searchbar" type="text" placeholder="Search resources...." id="searchBar">
+        </div>
+        <!-- search bar ends here -->
 
 
-            <div id=cardContainer class="cardContainer">
-                <p>No Resources to Display...</p>
-                <button id="addResources">+ Add Resources</button>
-            </div>
+        <div id=cardContainer class="cardContainer">
+            <p>No Resources to Display...</p>
+            <button id="addResources">+ Add Resources</button>
+        </div>
     </main>
     <!-- main section ends here -->
 
@@ -123,10 +126,9 @@
     </button>
     <!-- fixed add button ends here -->
 
-    
+
     <script src="js/form.js" defer></script>
     <script src="js/dashboard.js"></script>
-    <script src="js/deleteFiles.js"></script>
 
 
 </body>
