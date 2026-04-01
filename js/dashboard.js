@@ -35,7 +35,7 @@ function renderCards() {
                 newCard.classList.add("card");
                 newCard.dataset.subject = `${sub.name}`;
                 let html = `<div class="cardMain">
-                        <img src="assets/scrollDown.svg" class="expandCard">&nbsp
+                        <img src="assets/closedFolder.svg" class="expandCard">&nbsp
                         <h3>${sub.name}</h3>
                         <div class="extraOptions">
                             <img class="addSubjectImg" src="assets/addNewCategoryBtn.svg" alt="edit">
@@ -50,7 +50,7 @@ function renderCards() {
                     if (cat.name) {
                         html += `<div class="cardHero" data-category="${cat.name}" style="display:none;">
                                 <div class="categoryMain">
-                                    <h4>${cat.name}</h4>
+                                    <h4><img src="assets/categoryFile.svg" alt="category" class="fileImg"> ${cat.name}</h4>
                                     <button class="addMoreLinks"><img class="addMoreFiles" src="assets/addNewCategoryBtn.svg" alt="add"></button>
                                     <button class="editCategory"><img class="editSubjectCategory" src="assets/pencilEdit.svg" alt="edit"></button>
                                     <button class="deleteCategory"><img class="deleteSubjectCategory" src="assets/removeBin.svg" alt="delete"></button>
@@ -63,7 +63,8 @@ function renderCards() {
                             if (item.title && item.link) {
 
                                 html += ` <div class="item">
-                                        •<a href="${item.link}" target="_blank">${item.title}</a>
+<img src="assets/link.svg" alt="link" class="linkImg">
+                                        <a href="${item.link}" target="_blank">${item.title}</a>
                                         <img src="assets/removeBin.svg" class="deleteFiles">
                                     </div>`;
 
@@ -374,7 +375,7 @@ document.addEventListener("click", (e) => {
 //expand cards by click
 function expandCard(card) {
 
-    card.querySelector(".expandCard").style.transform = "rotateX(180deg)";
+    card.querySelector(".expandCard").src="assets/openFolder.svg";
 
     const cardHero = card.querySelectorAll(".cardHero");
     cardHero.forEach(c => {
@@ -397,11 +398,11 @@ document.addEventListener("click", (e) => {
 
             if (c.style.display !== "none") {
                 c.style.display = "none";
-                card.querySelector(".expandCard").style.transform = "rotateZ(0deg)"
+                card.querySelector(".expandCard").src="assets/closedFolder.svg";
             }
             else {
                 c.style.display = "flex";
-                card.querySelector(".expandCard").style.transform = "rotateZ(180deg)"
+                card.querySelector(".expandCard").src="assets/openFolder.svg"
             }
 
         })

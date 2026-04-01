@@ -33,34 +33,36 @@
     padding: 20px;
     justify-content: center;
     align-items: flex-start;
-    background: linear-gradient(170deg, rgb(105, 105, 107), rgb(210, 208, 208));
+    background: #0b1020;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    border: #1e293b;
 }
 
 #formContainer h2 {
-    color: rgb(49, 61, 167);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto Slab';
+    font-weight: 600;
     text-shadow: 0 0 1px rgb(125, 125, 172);
-    border-bottom: 0.5px solid rgb(79, 79, 81);
+    border-bottom: 0.5px solid rgb(98, 98, 108);
     width: 100%;
     text-align: center;
     margin: 0 0 8px 0;
+    border-radius: 4px;
 
 }
 
 #formContainer span {
     font-weight: 500;
     margin-top: 15px;
-    font-family: 'Libre Baskerville';
+    font-family: 'Inter';
 }
 
 #subject {
     width: 100%;
     min-height: 34px;
-    background-color: #d1cfd1;
-    border-radius: 6px;
-    border: 0.5px solid grey;
+    background-color: #161e30;
+    border-radius: 4px;
+    border: 0.5px solid #4e6074;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
 }
@@ -80,9 +82,9 @@
 .subjectInput input {
     width: 90%;
     min-height: 28px;
-    border-radius: 6px;
-    background-color: #e3e2e3;
-    border: 0.5px solid gray;
+    border-radius: 4px;
+    background: #111827;
+    border: 0.5px solid #4e6074;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
 }
@@ -91,9 +93,10 @@
     width: 50%;
     min-height: 28px;
     border-radius: 6px;
-    background: #e2e2e2;
-    color: #595859;
+    background: #111827;
+    color: #8d8c8d;
     font-weight: 500;
+    border: 0.5px solid #4e6074;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -125,13 +128,16 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
+h3 {
+    margin: 0;
+}
 
 /* for  edit subject form */
 #editSubject {
     position: fixed;
     width: 30%;
     z-index: 8;
-    min-width: 240px;
+    min-width: 260px;
     max-width: 320px;
     height: auto;
     padding-bottom: 10px;
@@ -139,27 +145,28 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background: linear-gradient(170deg, rgb(161, 161, 163), rgb(210, 208, 208));
+    background: #0b1020;
     flex-direction: column;
     align-items: center;
     border-radius: 8px;
-    gap: 5px;
+    gap: 6px;
 }
 
 #editSubject h3 {
     width: 100%;
     border-radius: 8px 8px 0 0;
-    background: linear-gradient(170deg, rgb(147, 147, 149), rgb(210, 208, 208));
+    background: #0c132a;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(24, 42, 68, 0.3);
     font-family: 'Roboto Slab';
-    color: #2169c6;
+    color: #ffffff;
+    padding: 3px;
 }
 
 .inputEditSubject {
     width: 100%;
     max-height: 40px;
-    padding: 5px;
+    padding: 3px;
     display: flex;
     justify-content: center;
     gap: 5px;
@@ -167,10 +174,11 @@
 
 .inputEditSubject input {
     width: 50%;
-    border: 0.2px solid grey;
+    border: 0.2px solid rgb(39, 52, 76);
     border-radius: 5px;
+    height: 100%;
     padding: 2px;
-    background: rgb(208, 205, 205);
+    background: #111827;
 }
 
 #saveEditSubject {
@@ -189,7 +197,7 @@
     position: fixed;
     width: 30%;
     z-index: 9;
-    min-width: 240px;
+    min-width: 280px;
     max-width: 320px;
     min-height: 150px;
     height: auto;
@@ -197,7 +205,7 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background: linear-gradient(170deg, rgb(161, 161, 163), rgb(210, 208, 208));
+    background: #0b1020;
     flex-direction: column;
     align-items: center;
     border-radius: 8px;
@@ -208,12 +216,12 @@
 #editCategory h3 {
     width: 100%;
     border-radius: 8px 8px 0 0;
-    background: linear-gradient(170deg, rgb(147, 147, 149), rgb(210, 208, 208));
+    background: #0a0f22;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     min-height: 28px;
     font-family: 'Roboto Slab';
-    color: #2169c6;
+    color: #ffffff;
 }
 
 .inputEditCategory {
@@ -227,18 +235,18 @@
 
 .newCategoryName {
     width: 50%;
-    border: 0.2px solid grey;
+    border: 0.2px solid rgb(39, 52, 76);
     border-radius: 5px;
     padding: 2px;
-    background: rgb(208, 205, 205);
+    background: #111827;
 }
 
 #selectCategoryNew {
     width: 50%;
-    border: 0.2px solid grey;
+    border: 0.2px solid rgb(39, 52, 76);
     border-radius: 5px;
     padding: 2px;
-    background: rgb(208, 205, 205);
+    background: #111827;
 }
 
 #saveEditCategory {
