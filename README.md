@@ -3,18 +3,17 @@ StudyShelf is a lightweight client-side web application that helps users to stor
 
 All data is persisted using browser localStorage, ensuring state is maintained across sessions without a backend.
 
-## 🚀Features(Current)
+## 🚀Features
 - Structured homepage layout
-- Add new subjects via input form
-- Delete subjects from localStorage and DOM
+- Create and manage subjects, dynamically
+- Add custom categories (Notes,Assignments,PYQs,etc)
+- Store resources with title and (drive links / youtube links)
+- Delete subjects, categories and resources
 - Dynamic rendering after each operation
-- Add categories to specific subjects using inline input
-- Delete category independetly
-- Add multiple resource(title + drive Link) under each category
 - Inline input for fast entry
 - Floating action button for adding new resources
-- Categorized resource section(Notes, Assignment, PYQs, etc)
-- Clean Dashboard layout for quick access to study materials
+- Data persistence using localStorage
+- Clean and smooth UI interaction for quick access to study materials
 
 ## 🛠️Tech stack
 - HTML5
@@ -22,11 +21,22 @@ All data is persisted using browser localStorage, ensuring state is maintained a
 - JavaScript(vanilla)
 - Browser localStorage
 
-## 📌Planned Features
-- Delete individual or multiple resource under each category
-- UI improvements and smooth transitions
-- Responsive layout improvements
-- Search and filter functionality
+## Demo📷
+- <p align="center">
+    <img src="assets/studyshelf_mobile.jpeg" width="250px">
+  </p>
+- ![Dashboard](assets/studyshelf.png)
+
+
+## ▶Live Link
+https://guptakrish490.github.io/studyshelf/
+
+## What I learned
+- Deep DOM manipulation using vanilla JavaScript
+- Managing dynamic UI without frameworks
+- Structuring scalable logic for nested data
+- Handlinng states using local storage
+- Debugging real-world UI and  data issues 
 
 ## 📂Project structure
 ```
@@ -48,10 +58,17 @@ studyshelf/
   ├---assets/
   |  ├--addNewBtn.svg
   |  ├--addNewCategoryBtn.svg
-  |  ├--logo.svg
+  |  ├--books.svg
+  |  ├--categoryFile.svg
+  |  ├--closedFolder.svg
+  |  ├--link.svg
+  |  ├--openFolder.svg
   |  ├--pencilEdit.svg
   |  ├--removeBin.svg
-  |  ├--searchbutton.svg
+  |  ├--searchButton.svg
+  |  ├--studyshelf_mobile.jpeg
+  |  ├--studyshelf.png
+  |  ├--studyshelf_video.mp4
   ```
   
 
@@ -71,9 +88,3 @@ This project is built to practice:
 - Browser localStorage
 - Git workflow discipline
 ---
-
-## 📈Status
-Actively under development
-
-## ▶Live Demo
-https://guptakrish490.github.io/studyshelf/
