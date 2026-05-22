@@ -19,6 +19,7 @@ document.getElementById("addResources").addEventListener("click", () => {
         overlay.style.display = "none";
     }
 })
+
 function renderCards() {
 
     const cards = JSON.parse(localStorage.getItem("subjects")) || [];
